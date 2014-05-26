@@ -1,0 +1,38 @@
+Welcome to the Writing Test Form!
+
+<p>The form below is comprised of three seperate auto generated forms and should write to three seperate entities in the Store Bundle and write to the DB.</p>
+
+
+{{ form_start(form) }}
+
+	<h3>User Info</h3>
+
+         {% for user in form.user %}
+           	{{ form_row(user.firstname) }}
+            {{ form_row(user.surname) }}
+            {{ form_row(user.email) }}
+            {{ form_row(user.password) }}
+        {% endfor %}	
+
+
+    <h3>Address</h3>
+ 
+         {% for address in form.address %}
+           	{{ form_row(address.number) }}
+            {{ form_row(address.street) }}
+            {{ form_row(address.town) }}
+            {{ form_row(address.postcode) }}
+        {% endfor %}
+
+
+    <h3>Personal Info</h3>
+ 
+         {% for personal in form.personal %}
+           	{{ form_row(personal.age) }}
+            {{ form_row(personal.weight) }}
+            {{ form_row(personal.height) }}
+            {{ form_row(personal.hair) }}
+        {% endfor %}
+
+<br /><br /><br /><br />
+{{ form_end(form) }}

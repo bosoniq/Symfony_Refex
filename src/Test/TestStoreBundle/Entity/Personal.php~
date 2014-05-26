@@ -1,0 +1,61 @@
+<?php
+
+namespace Test\TestStoreBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+* @ORM\Entity @ORM\Table(name="personal")
+*/
+class Personal
+{
+    
+    /**
+     * The id of this personal record entry
+     * @var int
+     *
+     * @ORM\Id @ORM\GeneratedValue @ORM\Column(type="integer")
+     */
+    private $id;
+
+    /**
+     * The id of the user that this record belongs to
+     * @var int
+     *
+     * @ORM\OneToOne(targetEntity="User", inversedBy="personal")
+     */
+    private $user;
+
+
+    /**
+     * Age of the user
+     * @var int
+     *
+     * @ORM\Column(type="intger")
+     */
+    private $age;
+
+    /**
+     * The weight of the user
+     * @var integer
+     *
+     * @ORM\Column(type="integer")
+     */
+    private $weight;
+
+    /**
+     * The height of the user
+     * @var integer
+     *
+     * @ORM\Column(type="integer")
+     */
+    private $height;
+
+    /**
+     * Hair colour of the user
+     * @var string
+     *
+     * @ORM\Column(type="string", length=20)
+     */
+    private $hair;
+}

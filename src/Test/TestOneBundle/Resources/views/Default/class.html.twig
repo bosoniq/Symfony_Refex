@@ -1,0 +1,23 @@
+Welcome to the test form!
+
+<p>The form below is special because it is made up of two forms created within different
+form 'type classes'.  One of these classes is included within another to produce the result below.  This is special because these two different forms store the received information into different classes/entities</p>
+
+
+{{ form_start(form) }}
+    {# render the task's only field: description #}
+    {{ form_row(form.name) }}
+    {{ form_row(form.surname) }}
+    {{ form_row(form.city) }}
+
+
+    <h3>Address</h3>
+ 
+         {% for address in form.address %}
+           	{{ form_row(address.number) }}
+            {{ form_row(address.street) }}
+            {{ form_row(address.town) }}
+            {{ form_row(address.postcode) }}
+        {% endfor %}
+
+{{ form_end(form) }}

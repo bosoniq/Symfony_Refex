@@ -1,0 +1,15 @@
+test_one_index:
+    pattern: /forms/
+    defaults: { _controller: TestTestOneBundle:Default:index }
+
+test_one_basic_form:
+    pattern:  /forms/basic
+    defaults: { _controller: TestTestOneBundle:Default:basic }
+
+test_one_class_form:
+    pattern:  /forms/class
+    defaults: { _controller: TestTestOneBundle:Default:class }
+
+task_success:
+    pattern:  /forms/task_success
+    defaults: { _controller: TestTestOneBundle:Default:success}

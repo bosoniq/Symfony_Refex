@@ -1,0 +1,3 @@
+test_test_two_homepage:
+    pattern:  /two/
+    defaults: { _controller: TestTestTwoBundle:Default:index }
