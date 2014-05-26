@@ -30,6 +30,11 @@ class DefaultController extends Controller
 
         if ($form->isValid()) {
 
+            $all->getUser()->first()->setPersonal($all->getPersonal()->first());
+            $all->getUser()->first()->setAddress($all->getAddress()->first());
+            $all->getAddress()->first()->setUser($all->getUser()->first());
+            $all->getPersonal()->first()->setUser($all->getUser()->first());
+
             // Persist submitted info to Database
             $em = $this->getDoctrine()->getManager();
             $em->persist($all->getUser()->first());
