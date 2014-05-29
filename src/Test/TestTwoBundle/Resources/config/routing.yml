@@ -1,3 +1,11 @@
 test_test_two_homepage:
     pattern:  /two/
     defaults: { _controller: TestTestTwoBundle:Default:index }
+
+test_test_two_fetch_by_user:
+    pattern:  /fetchUser/
+    defaults: { _controller: TestTestTwoBundle:Default:fetchUser }
+
+test_test_two_fetch_by_address:
+    pattern:  /fetchAddress/
+    defaults: { _controller: TestTestTwoBundle:Default:fetchAddress }
