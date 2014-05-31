@@ -74,7 +74,7 @@ class DefaultController extends Controller
     public function fetchUserAction()
     {
 
-        $id = 3;
+        $id = 4;
         
         $repo = $this->getDoctrine()->getRepository('Test\TestStoreBundle\Entity\User');
         $user = $repo->find($id);

@@ -3,6 +3,7 @@
 namespace Test\TestStoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
 * @ORM\Entity @ORM\Table(name="personal")
@@ -31,6 +32,8 @@ class Personal
      * Age of the user
      * @var int
      *
+     * @Assert\NotBlank(message="Age field cannot be blank")
+     * @Assert\Type(type="integer", message="The value {{ value }} is not a valid {{ type }}.")
      * @ORM\Column(type="integer")
      */
     private $age;
@@ -39,6 +42,8 @@ class Personal
      * The weight of the user
      * @var integer
      *
+     * @Assert\NotBlank(message="Weigth field cannot be blank")
+     * @Assert\Type(type="integer", message="The value {{ value }} is not a valid {{ type }}.")
      * @ORM\Column(type="integer")
      */
     private $weight;
@@ -47,6 +52,8 @@ class Personal
      * The height of the user
      * @var integer
      *
+     * @Assert\NotBlank(message="Height field cannot be blank")
+     * @Assert\Type(type="integer", message="The value {{ value }} is not a valid {{ type }}.")
      * @ORM\Column(type="integer")
      */
     private $height;
@@ -55,6 +62,8 @@ class Personal
      * Hair colour of the user
      * @var string
      *
+     * @Assert\NotBlank(message="Hair field cannot be blank")
+     * @Assert\Type(type="string", message="The value {{ value }} is not a valid {{ type }}.")
      * @ORM\Column(type="string", length=20)
      */
     private $hair;

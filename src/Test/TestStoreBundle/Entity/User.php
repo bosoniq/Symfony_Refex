@@ -3,6 +3,7 @@
 namespace Test\TestStoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
 * User Entity Class
@@ -22,7 +23,8 @@ class User
     /**
      * Users firstname
      * @var string
-     *
+     * @Assert\NotBlank(message="Firstname field cannot be blank")
+     * @Assert\Length(min=5, minMessage="Firstname must be at least 5 chars long")
      * @ORM\Column(type="string", length=50) 
      */
     private $firstname;
@@ -30,7 +32,8 @@ class User
     /**
      * Surname of user
      * @var string
-     *
+     * @Assert\NotBlank(message="Firstname field cannot be blank")
+     * @Assert\Length(min=5, minMessage="Lastname must be at least 5 chars long")
      * @ORM\Column(type="string", length=50)
      */
     private $surname;
@@ -46,7 +49,8 @@ class User
     /**
      * Email address if the user
      * @var string
-     *
+     * @Assert\NotBlank(message="Email field cannot be blank")
+     * @Assert\Email(message="The valued supplied must be a valid email address", checkMX = true)
      * @ORM\Column(type="string", length=100)
      */
     private $email;
@@ -54,7 +58,7 @@ class User
     /**
      * Users system password
      * @var string
-     *
+     * @Assert\Length(min=6, minMessage="Supplied password must be at least 6 chars long")
      * @ORM\Column(type="string", length=128)
      */
     private $password;

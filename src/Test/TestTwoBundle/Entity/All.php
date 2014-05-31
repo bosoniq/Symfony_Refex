@@ -3,6 +3,7 @@
 namespace Test\TestTwoBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
 * A Class to handle information submitted from the All Form
@@ -13,18 +14,21 @@ class All
     /**
      * New User object
      * @var object
+     * @Assert\Valid(traverse=true)
      */
     private $user;
 
     /**
      * New Address Object
      * @var object
+     * @Assert\Valid(traverse=true)
      */
     private $address;
 
     /**
      * New Personal Object
      * @var object
+     * @Assert\Valid(traverse=true)
      */
     private $personal;
 

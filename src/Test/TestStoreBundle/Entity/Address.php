@@ -3,6 +3,7 @@
 namespace Test\TestStoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
 * @ORM\Entity @ORM\Table(name="Address")
@@ -30,7 +31,8 @@ class Address
     /**
      * Number of the house
      * @var integer
-     *
+     * @Assert\NotBlank(message="Number field cannot be blank")
+     * @Assert\Type(type="integer", message="The value {{ value }} is not a valid {{ type }}.")
      * @ORM\Column(type="integer")
      */
     private $number;
@@ -39,15 +41,19 @@ class Address
     /**
      * Name of the street
      * @var string
-     *
-     * @ORM\Column(type="string", length=50)
+     * @Assert\NotBlank(message="Street field cannot be blank")
+     * @Assert\Type(type="string", message="The value {{ value }} is not a valid {{ type }}.")
+     * @Assert\Length(max=50, maxMessage="Street name cannot be longer than 50 chars")
+     * @ORM\Column(type="string", length=50)    
      */
     private $street;
 
     /**
      * The town section of the address
      * @var string
-     *
+     * @Assert\NotBlank(message="Town field cannot be blank")
+     * @Assert\Type(type="string", message="The value {{ value }} is not a valid {{ type }}.")
+     * @Assert\Length(max=50, maxMessage="town name cannot be longer than 50 chars")
      * @ORM\Column(type="string", length=50)
      */
     private $town;
@@ -55,7 +61,9 @@ class Address
     /**
      * The postcode section of the address
      * @var string
-     *
+     * @Assert\NotBlank(message="Postode field cannot be blank")
+     * @Assert\Type(type="string", message="The value {{ value }} is not a valid {{ type }}.")
+     * @Assert\Length(max=15, maxMessage="Postcode cannot be longer than 15 chars")
      * @ORM\Column(type="string", length=15)
      */
     private $postcode;
