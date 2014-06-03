@@ -110,4 +110,25 @@ class All
     
         return $this;
     }
+
+    /**
+     * Accept data from an array to populate all fields in the instatiated classes
+     */
+    public function fromArray(array $data)
+    {
+        $this->user->first()->setFirstname($data['firstname']);
+        $this->user->first()->setSurname($data['surname']);
+        $this->user->first()->setEmail($data['email']);
+        $this->user->first()->setPassword($data['password']);
+
+        $this->address->first()->setNumber($data['number']);
+        $this->address->first()->setStreet($data['street']);
+        $this->address->first()->setTown($data['town']);
+        $this->address->first()->setPostcode($data['postcode']);
+
+        $this->personal->first()->setAge($data['age']);
+        $this->personal->first()->setWeight($data['weight']);
+        $this->personal->first()->setHeight($data['height']);
+        $this->personal->first()->setHair($data['hair']);
+    }
 }

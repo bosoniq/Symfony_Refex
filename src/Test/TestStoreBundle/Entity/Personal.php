@@ -192,4 +192,16 @@ class Personal
     {
         return $this->user;
     }
+
+
+    /**
+     * Populate class properties with values supplied via array
+     */
+    public function fromArray(array $data)
+    {
+        $this->age = $data['age'];
+        $this->weight = $data['weight'];
+        $this->height = $data['height'];
+        $this->hair =$data['hair'];
+    }
 }

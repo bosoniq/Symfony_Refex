@@ -192,4 +192,16 @@ class Address
     {
         return $this->user;
     }
+
+
+    /**
+     * Populate class properties with values supplied via array
+     */
+    public function fromArray(array $data)
+    {
+        $this->number = $data['number'];
+        $this->street = $data['street'];
+        $this->town  = $data['town'];
+        $this->postcode =$data['postcode'];
+    }
 }

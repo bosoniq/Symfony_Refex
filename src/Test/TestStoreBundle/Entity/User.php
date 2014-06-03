@@ -24,6 +24,7 @@ class User
      * Users firstname
      * @var string
      * @Assert\NotBlank(message="Firstname field cannot be blank")
+     * @Assert\Type(type="string", message="The value {{ value }} is not a valid {{ type }}.")
      * @Assert\Length(min=5, minMessage="Firstname must be at least 5 chars long")
      * @ORM\Column(type="string", length=50) 
      */
@@ -33,6 +34,7 @@ class User
      * Surname of user
      * @var string
      * @Assert\NotBlank(message="Firstname field cannot be blank")
+     * @Assert\Type(type="string", message="The value {{ value }} is not a valid {{ type }}.")
      * @Assert\Length(min=5, minMessage="Lastname must be at least 5 chars long")
      * @ORM\Column(type="string", length=50)
      */
@@ -59,6 +61,7 @@ class User
      * Users system password
      * @var string
      * @Assert\Length(min=6, minMessage="Supplied password must be at least 6 chars long")
+     * @Assert\Type(type="string", message="The value {{ value }} is not a valid {{ type }}.")
      * @ORM\Column(type="string", length=128)
      */
     private $password;
@@ -66,7 +69,6 @@ class User
     /**
      * The id of the users personal description details
      * @var integer
-     *
      * @ORM\OneToOne(targetEntity="Personal", inversedBy="user")
      */
     private $personal;
@@ -217,5 +219,17 @@ class User
     public function getPersonal()
     {
         return $this->personal;
+    }
+
+
+    /**
+     * Populate class properties with values supplied via array
+     */
+    public function fromArray(array $data)
+    {
+        $this->firstname = $data['firstname'];
+        $this->surname = $data['surname'];
+        $this->email = $data['email'];
+        $this->password =$data['password'];
     }
 }

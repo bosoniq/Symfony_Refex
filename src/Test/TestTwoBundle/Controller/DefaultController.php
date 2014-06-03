@@ -77,8 +77,12 @@ class DefaultController extends Controller
         $id = 4;
         
         $repo = $this->getDoctrine()->getRepository('Test\TestStoreBundle\Entity\User');
+
+        //  Query by the priamary key (usually 'id')
         $user = $repo->find($id);
 
+        //  Shown here for explanitory purposes but better to include a method
+        //  to carry this out in your 'user' entity
         $array = array(
             'id' => $user->getId(),
             'firstname' => $user->getFirstname(),
