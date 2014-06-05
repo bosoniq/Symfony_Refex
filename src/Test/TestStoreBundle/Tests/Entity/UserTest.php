@@ -19,7 +19,7 @@ class UserTest extends WebTestCase
 	private $testData = array(
 				'firstname'    => 'ginger',
 				'surname' => 'biggles',
-				'email' => 'bosoniq@gmail.com',
+				'email' => 'a@gmail.com',
 				'password'   => 'AbIGsecret'
 			);
 
